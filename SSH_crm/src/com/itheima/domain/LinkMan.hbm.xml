@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.itheima.domain">
+    <class name="LinkMan" table="cst_linkman">
+        <id name="lkm_id">
+            <generator class="native"></generator>
+        </id>
+        <property name="lkm_gender"></property>
+        <property name="lkm_name"></property>
+        <property name="lkm_phone"></property>
+        <property name="lkm_mobile"></property>
+        <property name="lkm_email"></property>
+        <property name="lkm_qq"></property>
+        <property name="lkm_position"></property>
+        <property name="lkm_memo"></property>
+        <!--多对一-->
+        <!--
+            name属性:对象引用属性名
+            column属性:外键列名
+            class属性:与我关联对象的完整类名
+        -->
+        <!--
+            级联操作: cascade
+            save-update: 级联保存更新
+            delete:级联删除
+            all:save-update + delete : 级联保存更新删除
+            级联操作: 简化操作,目的是为了少写两行代码
+        -->
+        <!--多的一方,不能放弃对关系的维护,因为外键字段就在多的一方-->
+        <many-to-one name="customer" column="lkm_cust_id" class="Customer"></many-to-one>
+    </class>
+</hibernate-mapping>

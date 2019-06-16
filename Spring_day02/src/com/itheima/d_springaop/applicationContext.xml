@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--Spring主配置文件-->
+
+    <!--准备工作,导入aop(约束)命名空间-->
+    <!--1,配置目标对象-->
+    <bean name="userService" class="com.itheima.c_service.UserServiceImpl"></bean>
+    <!--2,配置通知对象-->
+    <bean name="myAdvice" class="com.itheima.a_aspect.MyAdvice"></bean>
+    <!--3,配置将通知织入目标对象-->
+    <aop:config>
+        <!--配置切入点
+            public void com.itheima.c_service.UserServiceImpl.save()
+            void com.itheima.c_service.UserServiceImpl.save()  -public为默认值    空参
+            * com.itheima.c_service.UserServiceImpl.save()   - * 表示对返回值不做要求     空参
+            * com.itheima.c_service.UserServiceImpl.*()   -第一个 * 表示对返回值不做要求, 第二个 * 表示这个类下所有的方法     空参
+            * com.itheima.c_service.UserServiceImpl.*(..)   -第一个 * 表示对返回值不做要求, 第二个 * 表示这个类下所有的方法  .. 表示对方法的参数不做任何要求
+
+
+            * com.itheima.c_service.*ServiceImpl.*(..)   -第一个 * 表示对返回值不做要求, 第二个 .&* 表示只找c_service下面的以ServiceImpl后缀结尾的类 第三个 * 表示这个类下所有的方法  .. 表示对方法的参数不做任何要求
+            * com.itheima.c_service..*ServiceImpl.*(..)   -第一个 * 表示对返回值不做要求,  第二个 ..&* 表示不但会找c_service下面的以ServiceImpl后缀结尾的类,还会找c_service下面子包中以ServiceImpl后缀结尾的类  第三个 * 表示这个类下所有的方法  .. 表示对方法的参数不做任何要求
+        -->
+        <aop:pointcut id="pc" expression="execution(* com.itheima.c_service.*ServiceImpl.*(..))"></aop:pointcut>
+        <aop:aspect ref="myAdvice">
+            <!--指定名为before的方法作为前置通知-->
+            <aop:before method="before" pointcut-ref="pc"/>
+            <!--后置通知-->
+            <aop:after-returning method="afterReturning" pointcut-ref="pc"/>
+            <!--环绕通知-->
+            <aop:around method="around" pointcut-ref="pc"/>
+            <!--异常拦截通知-->
+            <aop:after-throwing method="afterException" pointcut-ref="pc"/>
+            <!--后置通知-->
+            <aop:after method="after" pointcut-ref="pc"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

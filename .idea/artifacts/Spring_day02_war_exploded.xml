@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Spring_day02:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Spring_day02_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Spring_day02/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Spring_day02" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring" />
+          <element id="library" level="project" name="com.springsource.org.apache.commons.logging-1.1.1" />
+          <element id="library" level="project" name="com.springsource.org.apache.log4j-1.2.15" />
+          <element id="library" level="module" name="JUnit5" module-name="Spring_day02" />
+          <element id="library" level="module" name="JUnit4" module-name="Spring_day02" />
+          <element id="library" level="module" name="testng" module-name="Spring_day02" />
+          <element id="library" level="project" name="com.springsource.org.aspectj.weaver-1.6.8.RELEASE" />
+          <element id="library" level="project" name="com.springsource.org.aopalliance-1.0.0" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

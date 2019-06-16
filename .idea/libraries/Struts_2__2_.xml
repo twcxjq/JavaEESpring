@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="Struts 2 (2)" type="struts2">
+    <CLASSES>
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/asm-3.3.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/asm-commons-3.3.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/asm-tree-3.3.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/commons-fileupload-1.3.1.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/commons-io-2.2.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/commons-lang3-3.2.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/freemarker-2.3.22.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/javassist-3.11.0.GA.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/log4j-api-2.2.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/log4j-core-2.2.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/ognl-3.0.6.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/struts2-core-2.3.24.jar!/" />
+      <root url="jar://F:/JavaWeb/struts.（39-42天）/struts2-day01/struts2-day01/resource/struts-2.3.24/apps/struts2-blank/WEB-INF/lib/xwork-core-2.3.24.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

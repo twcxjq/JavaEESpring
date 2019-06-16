@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--Spring主配置文件-->
+
+
+
+    <!--set方法注入-->
+    <bean name="user" class="com.itheima.bean.User">
+        <!--值类型注入:为User对象中的name属性注入tom作为值(值类型注入(8大基本数据类型))-->
+        <property name="name" value="tom"></property>
+        <!--值类型注入:为User对象中的age属性注入18作为值(值类型注入(8大基本数据类型))-->
+        <property name="age" value="18"></property>
+        <!--引用类型注入:为User对象中的car属性注入下方配置的car对象(引用类型注入(将依赖对象注入))-->
+        <property name="car" ref="car"></property>
+    </bean>
+
+    <!--将Car对象配置到Spring容器中-->
+    <bean name="car" class="com.itheima.bean.Car">
+        <property name="name" value="雪佛兰"></property>
+        <property name="color" value="红色"></property>
+    </bean>
+
+
+    <!--=======================================================================-->
+    <!--构造方法注入-->
+    <bean name="user2" class="com.itheima.bean.User">
+        <!--name属性:构造方法的参数-->
+        <!--index属性:构造方法的参数索引-->
+        <!--type属性:构造方法的参数类型-->
+        <constructor-arg name="name" value="999" index="0" type="java.lang.Integer"></constructor-arg>
+        <constructor-arg name="car" ref="car" index="1"></constructor-arg>
+    </bean>
+
+
+    <!--=======================================================================-->
+    <!--p名称空间注入,走set方法
+        1,导入p名称空间 xmlns:p="http://www.springframework.org/schema/p"
+        2,使用 p:属性名   完成注入
+            |-值类型:  p:属性名="jeck"
+            |-引用类型:  p:属性名-ref="bean名称"
+    -->
+    <bean name="user3" class="com.itheima.bean.User" p:name="jack" p:age="20" p:car-ref="car">
+    </bean>
+
+
+    <!--=======================================================================-->
+    <!--spel注入: Spring Expression Language  (Spring表达式语言(spel表达式))
+    -->
+    <bean name="user4" class="com.itheima.bean.User">
+        <property name="name" value="#{user.name}"></property>
+        <property name="age" value="#{user3.age}"></property>
+        <property name="car" ref="car"></property>
+    </bean>
+
+
+    <!--=======================================================================-->
+    <!--复杂类型注入:-->
+    <bean name="cb" class="com.itheima.c_injection.CollectionBean">
+        <!--&lt;!&ndash;数组类型注入:一个元素注入&ndash;&gt;
+        &lt;!&ndash;如果数组中只是准备注入一个值(对象),直接使用value|ref即可&ndash;&gt;
+        <property name="arr" value="tom"></property>-->
+        <!--数组类型注入:多个元素注入-->
+        <property name="arr">
+            <array>
+                <value>tom</value>
+                <value>jack</value>
+                <ref bean="user4"/>
+            </array>
+        </property>
+
+        <!--List/Set类型注入:一个元素注入-->
+        <!--如果List中只是准备注入一个值(对象),直接使用value|ref即可-->
+        <!--<property name="list" value="jack"></property>-->
+        <!--List/Set类型注入:多个元素注入-->
+        <property name="list">
+            <list>
+                <value>jack</value>
+                <value>rose</value>
+                <ref bean="user3"/>
+            </list>
+        </property>
+
+        <!--Map类型注入-->
+        <property name="map">
+            <map>
+                <entry key="url" value="jdbc:mysql///crm"></entry>
+                <entry key="user" value-ref="user4"></entry>
+                <entry key-ref="user3" value-ref="user2"></entry>
+            </map>
+        </property>
+
+        <!--Properties类型注入-->
+        <property name="prop">
+            <props>
+                <prop key="driverClasss">com.jdbc.mysql.Driver</prop>
+                <prop key="userName">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+
+    </bean>
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--Spring主配置文件-->
+
+
+    <!--将User对象交给Spring容器管理-->
+    <!--使用bean元素描述需要交给Spring容器管理的对象
+        class属性:被管理的对象的完整类名(根据完整类名,在框架的最底层,通过反射实例化对象)
+        name属性:给被管理的对象起个名字,获得对象时根据该名称获得对象(可以重复,可以使用特殊字符,但是不推荐)
+        id属性:与name属性一模一样,名称不可以重复,不可以使用特殊字符
+        结论:尽量使用name属性
+    -->
+    <bean name="user" class="com.itheima.bean.User"></bean>
+
+    <!--导入其他Spring配置文件-->
+    <import resource="com/itheima/b_create/applicationContext.xml"/>
+
+
+</beans>

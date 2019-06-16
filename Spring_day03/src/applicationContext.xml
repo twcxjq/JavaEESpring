@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--Spring主配置文件-->
+
+
+    <!--指定Spring读取db.properties配置-->
+    <context:property-placeholder location="classpath:db.properties"/>
+
+
+    <!--1,将连接池放入Spring容器-->
+    <bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--<property name="jdbcUrl" value="jdbc:mysql:///hibernate_day01"></property>
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="123456"></property>-->
+
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+        <property name="driverClass" value="${jdbc.driverClass}"></property>
+        <property name="user" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+
+    </bean>
+    <!--&lt;!&ndash;2,将JdbcTemplate放入Spring容器&ndash;&gt;
+    <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>-->
+    <!--3,将UserDao放入Spring容器-->
+    <bean name="userDao" class="com.itheima.a_jdbctemplate.UserDaoImpl">
+        <!--<property name="jt" ref="jdbcTemplate"></property>-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+</beans>

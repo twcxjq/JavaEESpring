@@ -1,0 +1,29 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SSH_crm:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SSH_crm_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SSH_crm/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SSH_crm" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Hibernate" />
+          <element id="library" level="project" name="hibernate-entitymanager-5.0.7.Final" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.7-bin" />
+          <element id="library" level="project" name="Struts 2 (2)" />
+          <element id="library" level="project" name="struts2-spring-plugin-2.3.24" />
+          <element id="library" level="project" name="Spring" />
+          <element id="library" level="project" name="com.springsource.org.apache.commons.logging-1.1.1" />
+          <element id="library" level="project" name="com.springsource.org.apache.log4j-1.2.15" />
+          <element id="library" level="project" name="com.springsource.org.aopalliance-1.0.0" />
+          <element id="library" level="project" name="com.springsource.org.aspectj.weaver-1.6.8.RELEASE" />
+          <element id="library" level="project" name="com.springsource.com.mchange.v2.c3p0-0.9.1.2" />
+          <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="project" name="standard" />
+          <element id="library" level="module" name="JUnit4" module-name="SSH_crm" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

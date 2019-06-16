@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="crm_32@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="crm_32">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="engorgesnakefight"/>
+    <schema id="4" parent="1" name="hibernate_day01"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="sys"/>
+    <schema id="9" parent="1" name="tcsxt"/>
+    <schema id="10" parent="1" name="test_mysql"/>
+    <schema id="11" parent="1" name="web08"/>
+    <schema id="12" parent="1" name="web09"/>
+    <schema id="13" parent="1" name="web13"/>
+    <schema id="14" parent="1" name="web15"/>
+    <schema id="15" parent="1" name="web17"/>
+    <schema id="16" parent="1" name="web19"/>
+    <schema id="17" parent="1" name="web23"/>
+    <table id="18" parent="2" name="cst_customer"/>
+    <table id="19" parent="2" name="cst_linkman"/>
+    <table id="20" parent="2" name="sys_user"/>
+    <column id="21" parent="18" name="cust_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="22" parent="18" name="cust_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="23" parent="18" name="cust_source">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="24" parent="18" name="cust_industry">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="25" parent="18" name="cust_level">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="26" parent="18" name="cust_linkman">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="27" parent="18" name="cust_phone">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="28" parent="18" name="cust_mobile">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="29" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>cust_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="19" name="lkm_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="19" name="lkm_gender">
+      <Position>2</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="32" parent="19" name="lkm_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="33" parent="19" name="lkm_phone">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="34" parent="19" name="lkm_mobile">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="35" parent="19" name="lkm_email">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="36" parent="19" name="lkm_qq">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="37" parent="19" name="lkm_position">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="38" parent="19" name="lkm_memo">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="39" parent="19" name="lkm_cust_id">
+      <Position>10</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <index id="40" parent="19" name="FKh9yp1nql5227xxcopuxqx2e7q">
+      <ColNames>lkm_cust_id</ColNames>
+    </index>
+    <key id="41" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>lkm_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="42" parent="19" name="FKh9yp1nql5227xxcopuxqx2e7q">
+      <ColNames>lkm_cust_id</ColNames>
+      <RefSchemaName>crm_32</RefSchemaName>
+      <RefTableName>cst_customer</RefTableName>
+      <RefColNames>cust_id</RefColNames>
+    </foreign-key>
+    <column id="43" parent="20" name="user_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="44" parent="20" name="user_state">
+      <Position>2</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="45" parent="20" name="user_code">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="46" parent="20" name="user_name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="47" parent="20" name="user_password">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="48" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--创建对象方式1:空参构造创建-->
+    <bean name="user" class="com.itheima.bean.User" init-method="init" destroy-method="destory"></bean>
+
+    <!--创建对象方式2:静态工厂创建
+        调用UserFactory对象的createUser方法创建名为user2的对象,放入容器
+    -->
+    <bean name="user2" class="com.itheima.b_create.UserFactory" factory-method="createUser"></bean>
+
+    <!--创建对象方式2:实例工厂创建
+        调用UserFactory对象的createUser2方法创建名为user3的对象,放入容器
+    -->
+    <bean name="user3" factory-bean="UserFactory" factory-method="createUser2"></bean>
+    <bean name="UserFactory" class="com.itheima.b_create.UserFactory"></bean>
+
+</beans>

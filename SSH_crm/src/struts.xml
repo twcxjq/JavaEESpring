@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <!--
+        struts.objectFactory = spring   //将Action对象的创建交给Spring容器
+        struts.objectFactory.spring.autoWire = name  //Spring负责装配Action依赖属性(该常量默认已经打开,不需要我们手动配置)
+    -->
+    <!--配置常量-->
+    <constant name="struts.objectFactory" value="spring"></constant>
+
+
+
+    <package name="crm" namespace="/" extends="struts-default">
+        <global-exception-mappings>
+            <exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
+        </global-exception-mappings>
+        <!--
+            整合方案1:class属性上仍然配置Action的完整类名
+                       struts仍然创建Action，由Spring负责组装Action中的依赖属性
+        -->
+        <!--
+            整合方案2:class属性上填写Spring中Action对象的BeanName
+            完全由Spring管理Action的生命周期,包括Action对象的创建
+            注意:需要手动组装依赖属性
+        -->
+        <action name="UserAction_*" class="userAction" method="{1}">
+            <result name="toHome" type="redirect">/index.htm</result>
+            <result name="error">/login.jsp</result>
+        </action>
+    </package>
+</struts>

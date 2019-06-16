@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!--Struts2主配置文件-->
+
+<struts>
+
+    <!--指定Struts2是否以开发模式运行
+        默认值为:false
+        1,热加载Struts2主配置文件(struts.xml)-不需要重启服务器即可生效
+        2,提供更多错误信息输出,方便开发时的调试
+    -->
+    <!--
+        ### when set to true, Struts will act much more friendly for developers. This
+        ### includes:
+        ### - struts.i18n.reload = true(热部署/热加载-不需要重启服务器,可以使i18n配置生效)
+        ### - struts.configuration.xml.reload = true(热部署/热加载-不需要重启服务器,可以使Struts2主配置文件(struts.xml)生效)
+        ### - raising various debug or ignorable problems to errors(可以显示更多的错误提示)
+    -->
+    <!--<constant name="struts.devMode" value="true"></constant>-->
+
+
+
+    <!--Struts2核心配置-->
+
+    <!--package元素:将Action配置封装,就是可以在package中配置很多action
+            name属性:给package(包)起个名字,起到标识作用,我们可以自定义,但要保证不能与其他package(包)重复
+            namespace属性:给action的访问路径中定义一个命名空间
+            extends属性:继承一个指定package(包)(该package(包)名称为struts-default)
+            abstract属性:package(包)是否为抽象的,是一个标识性属性,标识该package(包)不能独立运行,专门被用来继承
+    -->
+    <package name="crm" namespace="/" extends="struts-default">
+
+
+
+        <!--拦截器配置-->
+        <interceptors>
+            <!--注册拦截器-->
+            <interceptor name="loginInterceptor" class="com.itheima.web.interceptor.LoginInterceptor"></interceptor>
+            <!--注册拦截器栈-->
+            <interceptor-stack name="myStack">
+                <!--自定义拦截器的引入-->
+                <interceptor-ref name="loginInterceptor">
+                    <param name="excludeMethods">login</param>
+                </interceptor-ref>
+                <!--引入默认拦截器栈(20个)-->
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!--指定同一个包中默认拦截器栈-->
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+
+
+        <!--定义全局结果集
+            对当前包(package)中所有的Action都生效
+        -->
+        <global-results>
+            <result name="toLogin" type="redirect">/login.jsp</result>
+        </global-results>
+
+
+        <!--Struts2异常处理机制-->
+        <global-exception-mappings>
+            <!--如果出现java.lang.RuntimeException异常,就跳转到名为error的结果-->
+            <exception-mapping exception="java.lang.RuntimeException" result="error"></exception-mapping>
+        </global-exception-mappings>
+        
+        
+        
+        <!--action元素:配置Action类
+                name属性:决定了action访问资源的名称
+                class属性:Action类的完整类名
+                method属性:指定调用Action类中的哪个方法来处理请求
+        -->
+        <action name="CustomerAction_*" class="com.itheima.web.action.CustomerAction" method="{1}">
+            <!--result元素:结果配置
+                    name属性:标识结果处理的名称,与Action类中所调用方法的返回值对应
+                    type属性:指定调用哪一个Result类来处理结果(Result类实质是一个接口,该
+                    接口有很多的实现类,这些实现类有对结果进行转发的实现,对结果进行重定向的实现),
+                    默认使用转发
+                    result标签体:填写页面所在的路径
+            -->
+            <result name="list">/jsp/customer/list.jsp</result>
+            <result name="toList" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">CustomerAction_list</param>
+            </result>
+        </action>
+        <!--action元素:配置Action类
+                name属性:决定了action访问资源的名称
+                class属性:Action类的完整类名
+                method属性:指定调用Action类中的哪个方法来处理请求
+        -->
+        <action name="UserAction_*" class="com.itheima.web.action.UserAction" method="{1}">
+            <!--result元素:结果配置
+                    name属性:标识结果处理的名称,与Action类中所调用方法的返回值对应
+                    type属性:指定调用哪一个Result类来处理结果(Result类实质是一个接口,该
+                    接口有很多的实现类,这些实现类有对结果进行转发的实现,对结果进行重定向的实现),
+                    默认使用转发
+                    result标签体:填写页面所在的路径
+            -->
+            <result name="toHome" type="redirect">/index.htm</result>
+            <result name="error">/login.jsp</result>
+        </action>
+    </package>
+</struts>

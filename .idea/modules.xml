@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaEESpring.iml" filepath="$PROJECT_DIR$/JavaEESpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSH_crm/SSH_crm.iml" filepath="$PROJECT_DIR$/SSH_crm/SSH_crm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring_crm/Spring_crm.iml" filepath="$PROJECT_DIR$/Spring_crm/Spring_crm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring_day01/Spring_day01.iml" filepath="$PROJECT_DIR$/Spring_day01/Spring_day01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring_day02/Spring_day02.iml" filepath="$PROJECT_DIR$/Spring_day02/Spring_day02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring_day03/Spring_day03.iml" filepath="$PROJECT_DIR$/Spring_day03/Spring_day03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring_day03tx/Spring_day03tx.iml" filepath="$PROJECT_DIR$/Spring_day03tx/Spring_day03tx.iml" />
+    </modules>
+  </component>
+</project>
